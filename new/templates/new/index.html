@@ -1,0 +1,78 @@
+{% extends 'new/basic.html' %}
+{% load static %}
+{% block body %}
+            
+            <!-- Carousel Start -->
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel" data-slide-to="1"></li>
+                    <li data-target="#carousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    {%for h in hom%}
+                    {%if h.active == 1%}
+                    <div class="carousel-item active">
+                        <img src="{{baseUrl}}/media/{{h.pic}}" alt="Carousel Image">
+                        <div class="carousel-caption">
+                            <h1 class="animated fadeInLeft">{{h.tag}}</h1>
+                            <p class="animated fadeInRight">{{h.desc}}</p>
+                            <a class="btn animated fadeInUp" href="{%url 'portfolio'%}">See Our Products</a>
+                        </div>
+                    </div>
+                    {%else%}
+                    <div class="carousel-item">
+                        <img src="{{baseUrl}}/media/{{h.pic}}" alt="Carousel Image">
+                        <div class="carousel-caption">
+                            <h1 class="animated fadeInLeft">{{h.tag}}</h1>
+                            <p class="animated fadeInRight">{{h.desc}}</p>
+                            <a class="btn animated fadeInUp" href="{%url 'portfolio'%}">See Our Products</a>
+                        </div>
+                    </div>
+                    {%endif%}
+                    {%endfor%}
+                </div>
+
+            </div>
+            <!-- Carousel End -->
+
+            
+            <!-- Top Feature Start-->
+            <div class="feature-top">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="feature-item">
+                                <i class="far fa-check-circle"></i>
+                                <h3>Eco-Friendly</h3>
+                                <p>All Eco-Friendly Products</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="feature-item">
+                                <i class="fa fa-user-tie"></i>
+                                <h3>Assistance</h3>
+                                <p>24*7 Technical Assistance</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="feature-item">
+                                <i class="far fa-thumbs-up"></i>
+                                <h3>Quality</h3>
+                                <p>100% Quality Assurance</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="feature-item">
+                                <i class="far fa-handshake"></i>
+                                <h3>Service</h3>
+                                <p>Quick Service</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Feature End-->
+
+
+{%endblock%}

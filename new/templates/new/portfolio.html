@@ -1,0 +1,52 @@
+{% extends 'new/basic.html' %}
+{% load static %}
+{% block body %}
+            <!-- Portfolio Start -->
+            <div class="portfolio">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Our Products</h2>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-12">
+                            <ul id="portfolio-flters">
+                                <li data-filter="*" class="filter-active">All</li>
+                                <li data-filter=".Special_Ink">Special Ink</li>
+                                <li data-filter=".Screen_Chemicals">Screen Chemicals</li>
+                                <li data-filter=".other">Other</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row portfolio-container">
+                    {%for i in pro%}
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item {{i.ptype}}">
+                            {% if i.ptype == "Screen_Chemicals"%}
+                            <div class="portfolio-wrap">
+                                <a href = "{%url 'view_screen_chemicals'%}"><img src=" {{baseUrl}}/media/{{i.ppic}} " alt="Funiture Image" style="height:300px;width:400px;"/>
+                                <figure>
+                                    <p>{{i.pname}}</p></a>
+                                </figure>
+                            </div>
+                            {% else%}
+
+                            <div class="portfolio-wrap">
+                                <a href = "/view_product/{{i.id}}/"><img src=" {{baseUrl}}/media/{{i.ppic}} " alt="Funiture Image" style="height:300px;width:400px;"/>
+                                <figure>
+                                    <p>{{i.pname}}</p></a>
+                                </figure>
+                            </div>
+                            {% endif%}
+                        </div>
+                        {%endfor%}
+                    </div>
+                    <div class="row">
+                        <div class="col-12 load-more">
+                            <a class="btn" href="{% static 'img/Brevet Chemicals .pdf' %}">Load More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Portfolio Start -->
+
+{%endblock%}

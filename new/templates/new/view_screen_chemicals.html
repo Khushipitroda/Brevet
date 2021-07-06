@@ -1,0 +1,42 @@
+{% extends 'new/basic.html' %}
+{% load static %}
+{% block body %}
+            <!-- Portfolio Start -->
+            <div class="portfolio">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Screen Chemicals</h2>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-12">
+                            <ul id="portfolio-flters">
+                                <li data-filter="*" class="filter-active">All</li>
+                                <li data-filter=".Biochromate_based_emusion">Biochromate based emusion</li>
+                                <li data-filter=".diazo_based">Diazo based</li>
+                                <li data-filter=".Pure_photopolymer">Pure Photopolymer</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row portfolio-container">
+                    {%for i in v%}
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item {{i.potype}}">
+                            <div class="portfolio-wrap">
+                                <a href = "/view_other_product/{{i.id}}/"><img src=" {{baseUrl}}/media/{{i.ppic}} " alt="Funiture Image" style="height:300px;width:400px;"/>
+                                <figure>
+                                    <p>{{i.pname}}</p></a>
+                                </figure>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                    <div class="row">
+                        <div class="col-12 load-more">
+                            <a class="btn" href="{% static 'img/Brevet Chemicals .pdf' %}">Load More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Portfolio Start -->
+
+{%endblock%}
