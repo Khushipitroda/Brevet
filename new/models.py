@@ -19,7 +19,7 @@ class Employees(models.Model):
     role = models.CharField(choices=profession,default='Owner',max_length=50)
 
 class Timeline(models.Model):
-    year = models.IntegerField(max_length=4)
+    year = models.IntegerField()
     tag = models.CharField(max_length=30)
     desc = models.CharField(max_length=400)
 
@@ -56,4 +56,4 @@ class Home(models.Model):
     pic = models.ImageField(upload_to='pics')
     tag = models.CharField(max_length=100)
     desc = models.CharField(max_length=200)
-    active = models.IntegerField(choices=active ,default=0,max_length=50)
+    active = models.IntegerField(choices=active ,default=0)
