@@ -22,6 +22,7 @@ class Timeline(models.Model):
     year = models.IntegerField()
     tag = models.CharField(max_length=30)
     desc = models.CharField(max_length=400)
+    ppic = models.ImageField(upload_to='pics')
 
 chemical_type = (
     ('Special_Ink','Special_Ink'),
